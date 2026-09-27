@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subur Makmur - Usaha Pupuk Tumbuhan Berkualitas</title>
+    <!-- Google Fonts untuk tampilan font modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- RESET & VARIABLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            --primary-color: #2e7d32; /* Hijau Organik Utama */
+            --primary-hover: #1b5e20;
+            --accent-color: #81c784;
+            --bg-light: #f4f8f5;
+            --text-dark: #2c3e50;
+            --text-muted: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            --whatsapp-green: #25D366;
+            --whatsapp-hover: #1da851;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* --- CONTAINER --- */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* --- HEADER / NAVBAR --- */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(46, 125, 50, 0.85), rgba(27, 94, 32, 0.85)), 
+                        url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 0 0 30px 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--text-dark);
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cta:hover {
+            background-color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        /* --- PROFIL TOKO & INFORMASI --- */
+        .about-section {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            display: block;
+            margin: 8px auto 0;
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .info-card {
+            background-color: var(--bg-light);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* --- KATALOG PRODUK --- */
+        .products-section {
+            margin: 50px 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-details {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--text-dark);
+        }
+
+        .product-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        /* --- TOMBOL WHATSAPP --- */
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--whatsapp-green);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .btn-wa:hover {
+            background-color: var(--whatsapp-hover);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* --- RESPONSIVE MOBILE DESIGN --- */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .about-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">🌱 Subur Makmur</div>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#products">Produk</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <h1>Nutrisi Terbaik untuk Tanaman Anda</h1>
+        <p>Menyediakan berbagai jenis pupuk kualitas terbaik untuk hasil panen optimal dan tanaman yang lebih sehat.</p>
+        <a href="#products" class="btn-cta">Lihat Produk Kami</a>
+    </section>
+
+    <div class="container">
+        <!-- PROFIL TOKO & INFORMASI -->
+        <section class="about-section" id="about">
+            <h2 class="section-title">Profil Toko</h2>
+            <div class="about-grid">
+                <div class="info-card">
+                    <h3>Tentang Toko</h3>
+                    <p><strong>Subur Makmur</strong> adalah penyedia pupuk organik dan non-organik terpercaya yang siap membantu para petani dan pecinta tanaman hias menjaga kesuburan tanah dan tanaman.</p>
+                </div>
+                <div class="info-card">
+                    <h3>Alamat Toko</h3>
+                    <p>📍 Jl. Pemuda No. 123, Sabrang, Muntilan, Kab. Magelang, Jawa Tengah</p>
+                    <p>⏰ Jam Operasional: Senin - Sabtu (08:00 - 17:00 WIB)</p>
+                </div>
+                <div class="info-card">
+                    <h3>Informasi Umum</h3>
+                    <p>📞 Whatsapp: 0812-3456-7890</p>
+                    <p>🚚 Melayani pembelian grosir, eceran, dan pengiriman ke seluruh wilayah.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- KATALOG PRODUK -->
+        <section class="products-section" id="products">
+            <h2 class="section-title">Produk Pupuk Pilihan</h2>
+            <div class="product-grid">
+                
+                <!-- Produk 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&w=500&q=80" alt="Pupuk Organik Granul" class="product-img">
+                    <div class="product-details">
+                        <h3 class="product-title">Pupuk Organik Premium</h3>
+                        <p class="product-desc">Sangat cocok untuk menyuburkan tanah, memperbaiki struktur tanah, dan aman bagi lingkungan.</p>
+                        <div class="product-price">Rp 45.000 / 5kg</div>
+                        <!-- Link WhatsApp Otomatis dengan Pesan -->
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20memesan%20Pupuk%20Organik%20Premium" target="_blank" class="btn-wa">
+                            💬 Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1592417817098-8f3d6eb1475a?auto=format&fit=crop&w=500&q=80" alt="Pupuk NPK NPK" class="product-img">
+                    <div class="product-details">
+                        <h3 class="product-title">Pupuk NPK Seimbang</h3>
+                        <p class="product-desc">Formula seimbang N-P-K untuk mempercepat pertumbuhan daun, batang, dan pembuahan.</p>
+                        <div class="product-price">Rp 65.000 / 1kg</div>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20memesan%20Pupuk%20NPK%20Seimbang" target="_blank" class="btn-wa">
+                            💬 Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?auto=format&fit=crop&w=500&q=80" alt="Pupuk Cair Nutrisi" class="product-img">
+                    <div class="product-details">
+                        <h3 class="product-title">Pupuk Cair Tanaman Hias</h3>
+                        <p class="product-desc">Praktis dan cepat diserap oleh daun/akar. Cocok untuk tanaman dalam pot dan hidroponik.</p>
+                        <div class="product-price">Rp 35.000 / 500ml</div>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20memesan%20Pupuk%20Cair%20Tanaman%20Hias" target="_blank" class="btn-wa">
+                            💬 Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk 4 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=500&q=80" alt="Pupuk Compost Super" class="product-img">
+                    <div class="product-details">
+                        <h3 class="product-title">Kompos Humus Kasgot</h3>
+                        <p class="product-desc">Kaya nutrisi alami, meningkatkan daya simpan air pada media tanam secara optimal.</p>
+                        <div class="product-price">Rp 25.000 / 10kg</div>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Admin,%20saya%20ingin%20memesan%20Kompos%20Humus%20Kasgot" target="_blank" class="btn-wa">
+                            💬 Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Subur Makmur - Solusi Pertanian & Tanaman Anda.</p>
+    </footer>
+
+</body>
+</html>
